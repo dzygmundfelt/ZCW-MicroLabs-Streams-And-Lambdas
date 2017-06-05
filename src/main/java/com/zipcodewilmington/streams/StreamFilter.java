@@ -18,25 +18,25 @@ public class StreamFilter {
 
     /**
      * No arg constructor
-     */ //TODO - construct person stream of 100 person objects; startingCharacter is a random capital letter
+     */ // http://www.dreamincode.net/forums/topic/164865-generating-random-upper-case-letters/
     public StreamFilter() {
-        this(Stream.empty(), null);
+        this(Stream.generate(PersonFactory::createRandomPerson).limit(100), (char)((int)'A'+Math.random()*((int)'Z'-(int)'A'+1)));
     }
 
     /**
      * @param people - Array of person objects
      * @param startingCharacter - character to filter by
-     */ //TODO
+     */
     public StreamFilter(Person[] people, Character startingCharacter) {
-        this(Stream.empty(), null);
+        this(Stream.of(people), startingCharacter);
     }
 
     /**
      * @param people - List of person objects
      * @param startingCharacter - character to filter by
-     */ //TODO
+     */
     public StreamFilter(List<Person> people, Character startingCharacter) {
-        this(Stream.empty(), null);
+        this(people.stream(), startingCharacter);
     }
 
 
@@ -64,7 +64,7 @@ public class StreamFilter {
      * @return a list of person objects whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListOneLine() {
-        return null;
+        return personStream.filter(person -> this.startingCharacter.equals(person.getName().substring(0,1))).collect(Collectors.toList());
     }
 
 
@@ -73,7 +73,7 @@ public class StreamFilter {
      * @return an array of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public Person[] toArrayOneLine() {
-        return null;
+        return personStream.filter(person -> this.startingCharacter.equals(person.getName().substring(0,1))).toArray(Person[]::new);
     }
 
 
