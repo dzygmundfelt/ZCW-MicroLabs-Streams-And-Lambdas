@@ -55,14 +55,14 @@ public class StreamFilter {
      * @return a list of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListMultiLine() {
-        return null;
+        return personStream.filter(person -> this.startingCharacter.equals(person.getName().substring(0,1))).collect(Collectors.toList());
     }
 
 
     /**
      * Using one-line lambda syntax
      * @return a list of person objects whose name starts with `this.startingCharacter`
-     */ //TODO
+     */
     public List<Person> toListOneLine() {
         return personStream.filter(person -> this.startingCharacter.equals(person.getName().substring(0,1))).collect(Collectors.toList());
     }
@@ -71,7 +71,7 @@ public class StreamFilter {
     /**
      * Using one-line lambda syntax
      * @return an array of person object whose name starts with `this.startingCharacter`
-     */ //TODO
+     */
     public Person[] toArrayOneLine() {
         return personStream.filter(person -> this.startingCharacter.equals(person.getName().substring(0,1))).toArray(Person[]::new);
     }
@@ -82,7 +82,7 @@ public class StreamFilter {
      * @return an array of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public Person[] toArrayMultiLine() {
-        return null;
+        return personStream.filter(person -> this.startingCharacter.equals(person.getName().substring(0,1))).toArray(Person[]::new);
     }
 
 }

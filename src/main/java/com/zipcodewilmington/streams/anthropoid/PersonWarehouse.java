@@ -58,7 +58,7 @@ public final class PersonWarehouse {
 
     /**
      * @return a mapping of Person Id to the respective Person name
-     */ // TODO
+     */
     public static Map<Long, String> getIdToNameMap() {
         return people.stream().collect(Collectors.toMap(Person::getPersonalId,Person::getName));
     }
@@ -66,7 +66,7 @@ public final class PersonWarehouse {
 
     /**
      * @return Stream of Stream of Aliases
-     */
+     */ // TODO
     public static Stream<Stream<String>> getNestedAliases() {
         return people.stream().map(person -> Stream.of(person.getAliases()));
     }
@@ -74,7 +74,7 @@ public final class PersonWarehouse {
 
     /**
      * @return Stream of all Aliases
-     */
+     */ // TODO
     public static Stream<String> getAllAliases() {
         return people.stream().flatMap(person -> Stream.of(person.getAliases()));
     }
